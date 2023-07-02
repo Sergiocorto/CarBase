@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\MakeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,4 @@ Route::get('/cars', [CarController::class, 'show']);
 Route::get('/cars/export', [CarController::class, 'export']);
 Route::patch('/cars/update/{id}', [CarController::class, 'update']);
 Route::delete('/cars/delete/{id}', [CarController::class, 'delete']);
-Route::get('/cars/upd', function()
-{
-    (new \App\Http\Services\CarDataUpdater())->updateCarData();
-});
+Route::get('/makes/{find}', [MakeController::class, 'autocomplete']);

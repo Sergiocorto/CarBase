@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('car_models', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('make_id')->constrained();
             $table->timestamps();
         });
     }
