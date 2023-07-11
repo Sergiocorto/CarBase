@@ -112,12 +112,13 @@ class CarService
         $sortBy = $request->input('sort_by', 'id');
         $sortDirection = $request->input('sort_direction', 'asc');
 
-
-        $cars = $query->orderBy($sortBy, $sortDirection)->paginate(1);
+        $cars = $query->orderBy($sortBy, $sortDirection)->get();
 
         $carsList = CarResource::collection($cars);
 
         return Excel::download(new CarsExport($carsList), 'cars.xls');
+
+
     }
 
     static private function generateQuery($request)

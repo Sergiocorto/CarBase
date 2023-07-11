@@ -6,7 +6,7 @@ namespace App\Http\Services;
 
 class VinCodeDecoder
 {
-    static public function vinCodeDecode($vinCode)
+    static public function vinCodeDecode(string $vinCode)
     {
         $postdata = http_build_query(
             array(
